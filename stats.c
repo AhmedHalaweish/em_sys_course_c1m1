@@ -39,6 +39,7 @@ void main() {
   /* Statistics and Printing Functions Go Here */
   print_array(test,SIZE);
   print_statistics(test,SIZE);
+  sort_array(test,SIZE);
 
 
 }
@@ -126,26 +127,36 @@ printf("minimum number in the array = %d\n", find_minimum(array,array_size));
 
 }
 
-/*
 ///////////////func 8
 unsigned char sort_array(unsigned char* array,unsigned int array_size){
 
-int i,c,new_size,max_index;
-unsigned char new_array[]={}
+int i,c,original_size,max_index,k;
+unsigned char new_array[array_size]; // array_size is the maximum size the new_array can reach
 unsigned int max;
-new_size=array_size;
-for(i=0;i<array_size;i++){
+original_size=array_size;
+for(i=0;i<40;i++){
 max=0;
-for(c=0;c<new_size;c++){
-	if( array[i]>max){
-		max=array[i];
-		max_index=i;
-	}
+//
+for(c=0;c<array_size;c++){
+	if( array[c]>max){
+		max=array[c];
+		max_index=c;
+			}
+			}
+// first you got the max number that need to be >>added to the new_array,, 
+new_array[i]=max;
 
+//you need to delete the max num from the original array...
+//also, reduce size of orig. array by 1
+//second copy next element value to current value in original array
+for(k=max_index;k<array_size-1;k++){
+array[k]=array[k+1];
 }
-}
-//printf("maximum number in the array = %d\n",max);
+/* Decrement array size by 1 */
+array_size--;
+
+   }
+print_array(new_array,original_size);
 }
 
-*/
 
